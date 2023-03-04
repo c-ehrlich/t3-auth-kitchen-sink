@@ -36,6 +36,9 @@ declare module "next-auth" {
  * @see https://next-auth.js.org/configuration/options
  */
 export const authOptions: NextAuthOptions = {
+  // session: {
+  //   strategy: "jwt",
+  // },
   callbacks: {
     session({ session, user }) {
       console.log("getting session");
@@ -45,6 +48,12 @@ export const authOptions: NextAuthOptions = {
       }
       return session;
     },
+    // session({ session, token }) {
+    //   if (session.user && token.sub) {
+    //     session.user.id = token.sub;
+    //   }
+    //   return session;
+    // },
   },
   adapter: PrismaAdapter(prisma),
   providers: [

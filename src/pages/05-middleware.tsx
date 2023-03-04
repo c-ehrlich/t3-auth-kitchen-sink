@@ -1,5 +1,8 @@
 import { useSession } from "next-auth/react";
 
+// this is protected by src/middleware.ts
+// that middleware requires the jwt strategy in order to work
+
 export default function ProtectedByMiddleware() {
   const session = useSession();
   return (
