@@ -27,11 +27,11 @@ const Home: NextPage = () => {
           <ul className="text-white">
             <li className="flex flex-col">
               <Link href="/00-context">- Context</Link>
-              <Link href="/01-gssp">- gSSP</Link>
-              <Link href="/02-gssp-redirect">- gSSP Redirect</Link>
-              <Link href="/03-protected-procedure">- Protected Procedure</Link>
+              <Link href="/01-require">- gSSP</Link>
+              <Link href="/02-gssp">- gSSP Redirect</Link>
+              <Link href="/03-gssp-redirect">- Protected Procedure</Link>
               <Link href="/04-redirect-clientside">- Redirect Client-side</Link>
-              <Link href="/05-require">- require</Link>
+              <Link href="/05-middleware">- require</Link>
             </li>
           </ul>
         </div>

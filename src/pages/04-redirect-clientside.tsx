@@ -6,12 +6,12 @@ export default function AuthedPage() {
   console.log(router.basePath);
 
   const secret = api.example.getSecretMessage.useQuery(undefined, {
-    retry: (_count, err) => {
+    retry: (count, err) => {
       // `onError` only runs once React Query stops retrying
       if (err.data?.code === "UNAUTHORIZED") {
         return false;
       }
-      return true;
+      return count > 3 ? false : true;
     },
     onError: (err) => {
       if (err.data?.code === "UNAUTHORIZED") {

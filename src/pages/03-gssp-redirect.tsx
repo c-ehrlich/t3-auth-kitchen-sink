@@ -21,7 +21,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     return {
       redirect: {
         // destination: "/",
-        destination: `/api/auth/signin?callbackUrl=${getBaseUrl()}/02-gssp-redirect`,
+        destination: `/api/auth/signin?callbackUrl=${getBaseUrl()}/03-gssp-redirect`,
         permanent: false,
       },
     };
