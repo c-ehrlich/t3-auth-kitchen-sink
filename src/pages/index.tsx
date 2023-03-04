@@ -31,7 +31,7 @@ const Home: NextPage = () => {
               <Link href="/02-gssp">- gSSP Redirect</Link>
               <Link href="/03-gssp-redirect">- Protected Procedure</Link>
               <Link href="/04-redirect-clientside">- Redirect Client-side</Link>
-              <Link href="/05-middleware">- require</Link>
+              <Link href="/05-middleware">- middleware (requires jwt)</Link>
             </li>
           </ul>
         </div>
