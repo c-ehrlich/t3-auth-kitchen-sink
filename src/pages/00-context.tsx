@@ -22,7 +22,7 @@ function UseSession1() {
   const { data: session } = useSession();
   return (
     <div>
-      <h3>Session 1</h3>
+      <h3>useSession 1</h3>
       <pre>{JSON.stringify(session, null, 2)}</pre>
     </div>
   );
@@ -32,7 +32,7 @@ function UseSession2() {
   const { data: session } = useSession();
   return (
     <div>
-      <h3>Session 2</h3>
+      <h3>useSession 2</h3>
       <pre>{JSON.stringify(session, null, 2)}</pre>
     </div>
   );
