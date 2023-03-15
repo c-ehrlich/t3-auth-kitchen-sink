@@ -22,4 +22,8 @@ export const exampleRouter = createTRPCRouter({
   getSecretMessage: protectedProcedure.query(() => {
     return "you can now see this secret message!";
   }),
+
+  getNotSoSecretMessage: publicProcedure.query(() => {
+    return "you can see this not so secret message!";
+  }),
 });
