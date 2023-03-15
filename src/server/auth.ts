@@ -30,6 +30,13 @@ declare module "next-auth" {
   // }
 }
 
+function msleep(n: number) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, n);
+}
+function sleep(n: number) {
+  msleep(n * 1000);
+}
+
 /**
  * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.
  *
@@ -42,6 +49,8 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     session({ session, user }) {
       console.log("getting session");
+      sleep(2);
+      console.log("done sleeping...");
       if (session.user) {
         session.user.id = user.id;
         // session.user.role = user.role; <-- put other properties on the session here
