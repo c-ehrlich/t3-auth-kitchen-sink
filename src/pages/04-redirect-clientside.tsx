@@ -3,7 +3,6 @@ import { api, getBaseUrl } from "../utils/api";
 
 export default function AuthedPage() {
   const router = useRouter();
-  console.log(router.basePath);
 
   const secret = api.example.getSecretMessage.useQuery(undefined, {
     retry: (count, err) => {

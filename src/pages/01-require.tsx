@@ -17,6 +17,7 @@ export default function Require() {
   return (
     <div>
       <h1>require</h1>
+      <p>super secret message</p>
       <pre>{JSON.stringify(session, null, 2)}</pre>
     </div>
   );
