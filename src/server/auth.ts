@@ -48,9 +48,8 @@ export const authOptions: NextAuthOptions = {
   // },
   callbacks: {
     session({ session, user }) {
-      console.log("getting session");
+      console.log("getting session...", new Date().toLocaleTimeString());
       sleep(2);
-      console.log("done sleeping...");
       if (session.user) {
         session.user.id = user.id;
         // session.user.role = user.role; <-- put other properties on the session here
