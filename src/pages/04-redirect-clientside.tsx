@@ -4,7 +4,7 @@ import { api, getBaseUrl } from "../utils/api";
 export default function AuthedPage() {
   const router = useRouter();
 
-  const secret = api.example.getSecretMessage.useQuery(undefined, {
+  const authedMutation = api.example.authedMutation.useMutation({
     retry: (count, err) => {
       // `onError` only runs once React Query stops retrying
       if (err.data?.code === "UNAUTHORIZED") {
@@ -19,12 +19,18 @@ export default function AuthedPage() {
         );
       }
     },
+    onSuccess: (response) => console.log(response),
   });
 
   return (
     <div>
       <h1>Authed Page</h1>
-      <p>{secret.data ?? "Loading..."}</p>
+      <button
+        className="border border-black bg-slate-200 p-2"
+        onClick={() => authedMutation.mutate()}
+      >
+        Authed Mutation
+      </button>
     </div>
   );
 }

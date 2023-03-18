@@ -43,25 +43,25 @@ function sleep(n: number) {
  * @see https://next-auth.js.org/configuration/options
  */
 export const authOptions: NextAuthOptions = {
-  // session: {
-  //   strategy: "jwt",
-  // },
+  session: {
+    strategy: "jwt",
+  },
   callbacks: {
-    session({ session, user }) {
-      console.log("getting session...", new Date().toLocaleTimeString());
-      sleep(2);
-      if (session.user) {
-        session.user.id = user.id;
-        // session.user.role = user.role; <-- put other properties on the session here
-      }
-      return session;
-    },
-    // session({ session, token }) {
-    //   if (session.user && token.sub) {
-    //     session.user.id = token.sub;
+    // session({ session, user }) {
+    //   console.log("getting session...", new Date().toLocaleTimeString());
+    //   sleep(2);
+    //   if (session.user) {
+    //     session.user.id = user.id;
+    //     // session.user.role = user.role; <-- put other properties on the session here
     //   }
     //   return session;
     // },
+    session({ session, token }) {
+      if (session.user && token.sub) {
+        session.user.id = token.sub;
+      }
+      return session;
+    },
   },
   adapter: PrismaAdapter(prisma),
   providers: [
